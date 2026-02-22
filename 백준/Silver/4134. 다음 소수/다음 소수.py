@@ -1,6 +1,6 @@
-import sys,functools
+import sys
 def DecimalCheck(a):
-    if n < 2:
+    if a < 2:
         return False
     for i in range(2,int(a**(0.5))+1):
         if a % i == 0:
