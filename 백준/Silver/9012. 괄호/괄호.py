@@ -3,24 +3,17 @@ input = sys.stdin.readline
 T = int(input())
 for i in range(T):
     n =input().rstrip()
-    cnt1 = 0
-    cnt2 = 0
-    check = True
+    cnt = 0
     for i in n:
-        if cnt1 != 0 and cnt1 == cnt2:
-            cnt1 = 0
-            cnt2 = 0
-        if cnt1 == 0 and i != '(':
-            print('NO')
-            check = False
-            break
-        
         if i == '(':
-            cnt1 += 1
+            cnt += 1
         elif i == ')':
-            cnt2 += 1
-    if check:
-        if cnt1 != 0 and cnt1 == cnt2:
-            print('YES')
-        else:
+            cnt -= 1
+        if cnt < 0:
             print('NO')
+            break
+    if cnt > 0 :
+        print('NO')
+    elif cnt == 0:
+        print('YES')
+        
