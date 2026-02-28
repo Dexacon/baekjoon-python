@@ -26,3 +26,12 @@
 
  <p> <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mrow><mjx-texatom texclass="OPEN"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c28 TEX-S1"></mjx-c></mjx-mo></mjx-texatom><mjx-mfrac><mjx-frac atop="true" delims="true" style="vertical-align: -0.345em;"><mjx-num style="padding-bottom: 0.306em;"><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D441 TEX-I"></mjx-c></mjx-mi></mjx-num><mjx-den><mjx-mi class="mjx-i" size="s"><mjx-c class="mjx-c1D43E TEX-I"></mjx-c></mjx-mi></mjx-den></mjx-frac></mjx-mfrac><mjx-texatom texclass="CLOSE"><mjx-mo class="mjx-sop"><mjx-c class="mjx-c29 TEX-S1"></mjx-c></mjx-mo></mjx-texatom></mjx-mrow></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mrow data-mjx-texclass="ORD"><mrow data-mjx-texclass="OPEN"><mo minsize="1.2em" maxsize="1.2em">(</mo></mrow><mfrac linethickness="0"><mi>N</mi><mi>K</mi></mfrac><mrow data-mjx-texclass="CLOSE"><mo minsize="1.2em" maxsize="1.2em">)</mo></mrow></mrow></math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">\(\binom{N}{K}\)</span></mjx-container>를 출력한다.</p>
 
+ ### 🧠 배운 점 & 설계 과정
+1. **문제 해석**: 
+   - 입력으로 N과 K가 주어지면 N과 K의 이항계수를 출력하라.
+   - 조합론에서 이항계수란 크기가 N인 유한집합의 크기가 K인 부분집합의 수이다.
+   - N개 원의 K개의 조합이다.
+2. **설계**:
+   - N과 K의 이항계수는 NPK/K! 이므로 팩토리얼 개념을 이용하여 while로 분자부터 계산한 후에 분모로 나눈다.
+3. **실수 & 해결**:
+   - 처음에는 combination을 이용해 크기가 N인 유한집합의 크기가 K인 부분집합의 수로 풀었으나 메모리를 더 많이 소모해서 다시 풀었다.
