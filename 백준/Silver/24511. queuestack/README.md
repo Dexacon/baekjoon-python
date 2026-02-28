@@ -53,3 +53,17 @@
 
  <p>수열 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D436 TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>C</mi></math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$C$</span></mjx-container>의 원소를 차례대로 queuestack에 삽입했을 때의 리턴값을 공백으로 구분하여 출력한다.</p>
 
+ ### 🧠 배운 점 & 설계 과정
+1. **문제 해석**: 
+   - queuestack에는 N개의 큐 혹은 스택이 들어있다.
+   - 각각의 자료구조에는 한개의 원소가 들어있다.
+   - queuestack에 넣을 원소를 입력하면 1번 자료구조부터 N번 자료구조까지 원소를 삽입하고 pop으로 원소를 추출한다.(추출된 원소를 그 다음 자료구조에 삽입)
+   - 큐는 원소를 뒤로넣고 앞으로 뺀다(선입선출), 스택은 원소를 뒤로넣고 뒤로 뺀다(후입선출)
+   - 따라서 스택은 어짜피 넣은 원소를 그대로 빼기때문에 신경 쓸 필요가 없어보인다.
+2. **설계**:
+   - 위의 해석대로 스택은 원소를 넣어도 그대로 그 원소를 추출하기 때문에 과정에서 제외시킨다.
+   - 큐만 과정을 보면 어떤 원소를 넣으면 뒤로 한칸씩 원소를 밀어내고 결국 마지막엔 마지막 번호의 자료구조에 있던 원소가 추출된다.
+   - 따라서 원소를 삽입할땐 appendleft로 앞으로 넣고 pop으로 뒤에서 빼서 길이가 정해진 리스트에서 원소를 밀어내는 구조로 설계한다.
+3. **실수 & 해결**:
+   - 실수 없었다.
+
