@@ -1,49 +1,44 @@
 import sys
 input = sys.stdin.readline
-
-def merge_sort(A, p, r):
-    if p < r:
-        q = (p + r) // 2  
-        merge_sort(A, p, q)    
-        merge_sort(A, q + 1, r)  
-        merge(A, p, q, r)   
-        
-def merge(A, p, q, r):
-    global cnt, res
-    i = p
-    j = q + 1
-    tmp = []
-
-    while i <= q and j <= r:
-        if A[i] <= A[j]:
-            tmp.append(A[i])
+A,K = map(int,input().split())
+nums = list(map(int,input().split()))
+cnt = 0
+def merge_sort(X):
+    if len(X) <= 1:
+        return X
+    else:
+        mid = (len(X)+1)//2
+        left = merge_sort(X[:mid])
+        right = merge_sort(X[mid:])
+    return merge(left,right)
+def merge(left,right):
+    global cnt
+    result = []
+    i = j = 0
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            cnt += 1
+            if cnt == K:
+                print(left[i])
             i += 1
         else:
-            tmp.append(A[j])
+            result.append(right[j])
+            cnt += 1
+            if cnt == K:
+                print(right[j])
             j += 1
-
-    while i <= q:
-        tmp.append(A[i])
-        i += 1
-    while j <= r:
-        tmp.append(A[j])
-        j += 1
-
-    t = 0
-    while p <= r:
-        A[p] = tmp[t] 
+    for x in range(i,len(left)):
+        result.append(left[x])
         cnt += 1
-        if cnt == K:  
-            res = A[p]
-        p += 1
-        t += 1
-
-N, K = map(int, input().split())
-nums = list(map(int, input().split()))
-
-cnt = 0
-res = -1  
-
-merge_sort(nums, 0, N - 1)
-
-print(res)
+        if cnt == K:
+            print(left[x])
+    for x in range(j,len(right)):
+        result.append(right[x])
+        cnt += 1
+        if cnt == K:
+            print(right[x])
+    return result
+merge_sort(nums)
+if cnt < K:
+    print(-1)
