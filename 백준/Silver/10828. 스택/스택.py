@@ -1,7 +1,7 @@
 import sys
 from collections import deque
 N = int(sys.stdin.readline())
-result = deque()
+result = []
 for i in range(N):
     x = sys.stdin.readline().rstrip().split()
     match x[0]:
