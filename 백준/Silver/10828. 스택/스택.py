@@ -3,7 +3,7 @@ from collections import deque
 N = int(sys.stdin.readline())
 result = deque()
 for i in range(N):
-    x = list(sys.stdin.readline().rstrip().split())
+    x = sys.stdin.readline().rstrip().split()
     match x[0]:
         case 'push':
             result.append(x[1])
