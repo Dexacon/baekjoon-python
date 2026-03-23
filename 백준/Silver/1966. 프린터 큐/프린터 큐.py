@@ -1,18 +1,20 @@
+import sys
 from collections import deque
-
+input = sys.stdin.readline
 T = int(input())
-
-for _ in range(T):
-    N, M = map(int, input().split())
-    priorities = list(map(int, input().split()))
-    queue = deque((p, i) for i, p in enumerate(priorities))
-    count = 0
-    while queue:
-        current = queue.popleft()
-        if any(current[0] < q[0] for q in queue):
-            queue.append(current)
-        else:
-            count += 1
-            if current[1] == M:
-                print(count)
+for i in range(T):
+    N,M = map(int,input().split())
+    pile = list(map(int,input().split()))
+    printer = deque((j,i) for i,j in enumerate(pile))
+    cnt = 0
+    X = printer[M]
+    while True:
+        if printer[0] == max(printer, key=lambda x: x[0]):
+            if printer[0] == X:
+                cnt+=1
                 break
+            cnt+=1
+            printer.popleft()
+        else:
+            printer.append(printer.popleft())
+    print(cnt)
