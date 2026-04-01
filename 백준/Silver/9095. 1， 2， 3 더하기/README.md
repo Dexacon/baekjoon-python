@@ -37,5 +37,9 @@
 ### 출력 
 
  <p>각 테스트 케이스마다, n을 1, 2, 3의 합으로 나타내는 방법의 수를 출력한다.</p>
+
+
+
+ 
 ![image](https://github.com/user-attachments/assets/c5de0129-2796-4a90-9d83-06339d875a86)
 
